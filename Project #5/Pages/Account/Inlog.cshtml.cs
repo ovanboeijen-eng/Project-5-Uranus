@@ -11,26 +11,30 @@ namespace Account.LoginPage.Pages
 
         public string? ErrorMessage { get; set; }
 
-        public void OnGet()
-        {
-            
-        }
+        public Guid SelectedCampingId { get; set; }
 
-        public IActionResult OnPost()
+        public List<Camping> Campings { get; set; } = new List<Camping>()
+            {
+
+                new Camping { Id = Guid.NewGuid(), Name = "Camping De Zon" },
+                new Camping { Id = Guid.NewGuid(), Name = "Camping Het Bos" },
+                new Camping { Id = Guid.NewGuid(), Name = "Camping Aan Zee" },
+                new Camping { Id = Guid.NewGuid(), Name = "Les 3 Sources" }
+            };
+        
+        public IActionResult OnPostLogin()
         {
             if (!ModelState.IsValid)
             {
                 return Page();
             }
 
-            
             if (Input.Email == "admin@test.nl" && Input.Password == "Test123!")
             {
-               
                 HttpContext.Session.SetString("UserEmail", Input.Email);
-
-                return RedirectToPage("/Index"); // Of een dashboard pagina
+                return RedirectToPage("/Index");
             }
+
             else
             {
                 ErrorMessage = "Ongeldige inloggegevens";
@@ -38,11 +42,28 @@ namespace Account.LoginPage.Pages
             }
         }
 
+        public IActionResult OnPostSelectCamping()
+        {
+            if (SelectedCampingId == Guid.Empty)
+            {
+                ModelState.AddModelError("", "Selecteer een camping.");
+                return Page();
+            }
+
+            return RedirectToPage("Index");
+        }
+
         public IActionResult OnPostLogout()
         {
             HttpContext.Session.Clear();
             return RedirectToPage("/Login");
         }
+    }
+
+    public class Camping
+    {
+        public Guid Id { get; set; }
+        public required string Name { get; set; }
     }
 
     public class LoginInput
@@ -54,6 +75,7 @@ namespace Account.LoginPage.Pages
         [Required(ErrorMessage = "Wachtwoord is verplicht")]
         [DataType(DataType.Password)]
         public string? Password { get; set; }
+        
 
         public bool? RememberMe { get; set; }
     }

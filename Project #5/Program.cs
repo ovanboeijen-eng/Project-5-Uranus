@@ -23,6 +23,18 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
+
+app.Use(async (context, next) =>
+{
+    if (context.Request.Path == "/" || string.IsNullOrEmpty(context.Request.Path))
+    {
+        context.Response.Redirect("/Account/Inlog");
+        return;
+    }
+
+    await next();
+});
+
 app.UseRouting();
 
 app.UseAuthorization();

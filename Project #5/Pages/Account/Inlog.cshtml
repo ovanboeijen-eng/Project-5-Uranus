@@ -1,6 +1,6 @@
 ﻿@page
 @using global::Account.LoginPage.Pages
-@model LoginModel
+@model LoginModel   
 @{
     ViewData["Title"] = "Inloggen";
 }
@@ -12,7 +12,27 @@
     <div class="alert alert-danger">@Model.ErrorMessage</div>
 }
 
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<!-- Camping selectie -->
 <form method="post">
+    <div class="form-group">
+        <label for="campingSelect">Kies een camping</label>
+        <select asp-for="SelectedCampingId" class="form-control" id="campingSelect">
+            <option value="">-- Kies een camping --</option>
+            @foreach (var c in Model.Campings)
+            {
+                <option value="@c.Id">@c.Name</option>
+            }
+        </select>
+    </div>
+    <button type="submit" asp-page-handler="SelectCamping" class="btn btn-secondary">Selecteer camping</button>
+</form>
+
+<hr />
+
+<!-- Login formulier -->
+<form method="post" asp-page-handler="Login">
     <div class="form-group">
         <label asp-for="Input.Email"></label>
         <input asp-for="Input.Email" class="form-control" />
@@ -31,4 +51,10 @@
     </div>
 
     <button type="submit" class="btn btn-primary">Inloggen</button>
+    <a asp-page="/Account/Regristratie" class="btn btn-outline-secondary ms-2">Registreren</a>
+</form>
+
+<!-- Logout knop -->
+<form method="post" class="mt-3">
+    <button type="submit" asp-page-handler="Logout" class="btn btn-link">Uitloggen</button>
 </form>
