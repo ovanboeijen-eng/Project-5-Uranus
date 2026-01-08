@@ -1,11 +1,11 @@
-using Account.LoginPage.Pages;
+using Login.Klant.Page;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
 
-namespace Project__5.Pages.Account
+namespace RegristratieKlant
 {
-    public class RegristratieModel : PageModel
+    public class RegristratieKlantModel : PageModel
     {
         [BindProperty]
         public required RegristratieInput Input { get; set; }
@@ -55,7 +55,7 @@ namespace Project__5.Pages.Account
             }
 
             HttpContext.Session.SetString("UserEmail", Input.Email);
-            HttpContext.Session.SetString("LicensePlate", Input.Kenteken);
+            //HttpContext.Session.SetString("LicensePlate", Input.Kenteken);
 
             return RedirectToPage("/Account/Inlog");
         }
@@ -68,10 +68,10 @@ namespace Project__5.Pages.Account
         [Display(Name = "E-mailadres")]
         public required string Email { get; set; }
 
-        [Required(ErrorMessage = "Kenteken is verplicht")]
-        [RegularExpression(@"^[A-Z0-9\-]{6,10}$", ErrorMessage = "Ongeldig kenteken (6-10 tekens, alleen hoofdletters en cijfers)")]
-        [Display(Name = "Kenteken")]
-        public required string Kenteken { get; set; }
+        //[Required(ErrorMessage = "Kenteken is verplicht")]
+        //[RegularExpression(@"^[A-Z0-9\-]{6,10}$", ErrorMessage = "Ongeldig kenteken (6-10 tekens, alleen hoofdletters en cijfers)")]
+        //[Display(Name = "Kenteken")]
+        //public required string Kenteken { get; set; }
 
         [Required(ErrorMessage = "Wachtwoord is verplicht")]
         [StringLength(100, MinimumLength = 6, ErrorMessage = "Wachtwoord moet minimaal 6 tekens zijn")]
@@ -85,5 +85,5 @@ namespace Project__5.Pages.Account
         [Compare("Password", ErrorMessage = "Wachtwoorden komen niet overeen")]
         public required string BevestigWachtwoord { get; set; }
 
-        }
+    }
 }

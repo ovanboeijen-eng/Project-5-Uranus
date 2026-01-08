@@ -28,7 +28,7 @@ app.Use(async (context, next) =>
 {
     if (context.Request.Path == "/" || string.IsNullOrEmpty(context.Request.Path))
     {
-        context.Response.Redirect("/Account/Inlog");
+        context.Response.Redirect("/Account/Klant/InlogKlant");
         return;
     }
 

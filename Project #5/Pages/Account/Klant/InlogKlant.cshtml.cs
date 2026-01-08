@@ -2,9 +2,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
 
-namespace Account.LoginPage.Pages
+namespace Login.Klant.Page
 {
-    public class LoginModel : PageModel
+    public class LoginKlantModel : PageModel
     {
         [BindProperty]
         public required LoginInput Input { get; set; }
@@ -56,7 +56,7 @@ namespace Account.LoginPage.Pages
         public IActionResult OnPostLogout()
         {
             HttpContext.Session.Clear();
-            return RedirectToPage("/Login");
+            return RedirectToPage("/Account/Klant/InlogKlant");
         }
     }
     //hallo
