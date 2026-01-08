@@ -59,7 +59,7 @@ namespace Account.LoginPage.Pages
             return RedirectToPage("/Login");
         }
     }
-
+    //hallo
     public class Camping
     {
         public Guid Id { get; set; }
