@@ -113,33 +113,41 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-   justify-content: space-evenly;
+    justify-content: space-evenly;
 }
 
-.loginForm .form-group {
-    height: 30%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+    .loginForm .form-group {
+        height: 30%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-.loginForm .form-group input {
-    width: 100%;
-    height: 70%;
-    color: var(--midnight);
-    font-size: large;
-    border-radius: 10px;
-    text-align: center;
-    background-color: var(--lace);
-    cursor: pointer;
-    overflow-x: hidden;
+        .loginForm .form-group input {
+            width: 100%;
+            height: 70%;
+            color: var(--midnight);
+            font-size: large;
+            border-radius: 10px;
+            text-align: center;
+            background-color: var(--lace);
+            cursor: pointer;
+            overflow-x: hidden;
+        }
+.loginHeading{
+    height: 20%;
 }
 
 .logoMarkDark {
     display: flex;
     align-items: center;
     justify-content: flex-end;
+}
+
+.logoMarkDark img{
+    width: auto;
+    height: 20%;
 }
 
 .loginSection {
@@ -160,16 +168,16 @@ main {
     font-size: medium;
 }
 
-.registerBtn{
+.registerBtn {
     font-family: var(--subheadingFont);
     color: var(--cobalt);
     text-decoration: none;
 }
 
-.registerBtn:hover{
-    text-decoration: underline;
-}
+    .registerBtn:hover {
+        text-decoration: underline;
+    }
 
-.text-danger{
+.text-danger {
     color: darkred;
 }

@@ -12,7 +12,7 @@
 	<div class="wrapper">
 		<div class="loginHeading">
 			<figure class="logoMarkDark">
-				<img src="img/beeldmerkDonkerImg.png" />
+				<img src="/img/beeldmerkDonkerImg.png" />
 			</figure>
 
 
@@ -30,7 +30,7 @@
 			<form method="post" class="campingForm">
 				<div class="form-group">
 					<select asp-for="SelectedCampingId" class="form-control" id="campingSelect">
-						<option value="" id="campingPlaceholder">Choose a camping </option>
+						<option value="" id="campingPlaceholder">Selecteer een camping </option>
 						@foreach (var c in Model.Campings)
 						{
 							<option value="@c.Id">@c.Name</option>
@@ -50,7 +50,7 @@
 
 				<div class="form-group">
 					<span asp-validation-for="Input.Password" class="text-danger"></span>
-					<input asp-for="Input.Password" class="form-control" placeholder="Password*" />
+					<input asp-for="Input.Password" class="form-control" placeholder="Wachtwoord*" />
 				</div>
 
 
