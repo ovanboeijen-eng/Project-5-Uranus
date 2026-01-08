@@ -135,7 +135,8 @@ main {
             cursor: pointer;
             overflow-x: hidden;
         }
-.loginHeading{
+
+.loginHeading {
     height: 20%;
 }
 
@@ -143,12 +144,13 @@ main {
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    padding: 0;
+    margin: 0;
 }
 
-.logoMarkDark img{
-    width: auto;
-    height: 20%;
-}
+    .logoMarkDark img {
+        width: 64px;
+    }
 
 .loginSection {
     height: 100%;

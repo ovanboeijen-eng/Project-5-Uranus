@@ -75,7 +75,10 @@ namespace Login.Klant.Page
         [Required(ErrorMessage = "Wachtwoord is verplicht")]
         [DataType(DataType.Password)]
         public string? Password { get; set; }
-        
+
+        [Required(ErrorMessage = "Selecteer een camping")]
+        public string? Camping { get; set; }
+
 
         public bool? RememberMe { get; set; }
     }

@@ -18,13 +18,12 @@
 
 			<h2>Log in</h2>
 		</div>
+
 		<section class="authScreenForms">
 			@if (!string.IsNullOrEmpty(Model.ErrorMessage))
 			{
 				<div class="alert alert-danger">@Model.ErrorMessage</div>
 			}
-
-
 
 			<!-- Camping selectie -->
 			<form method="post" class="campingForm">

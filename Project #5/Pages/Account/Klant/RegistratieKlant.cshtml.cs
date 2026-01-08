@@ -12,6 +12,8 @@ namespace RegristratieKlant
 
         public string? ErrorMessage { get; set; }
 
+        public Guid SelectedCampingId { get; set; }
+
         public class RegristratieInput
         {
             [Required]
@@ -25,8 +27,8 @@ namespace RegristratieKlant
             [Display(Name = "Bevestig Wachtwoord")]
             public required string BevestigWachtwoord { get; set; }
             [Required]
-            [Display(Name = "Kenteken")]
-            public required string Kenteken { get; set; }
+            //[Display(Name = "Kenteken")]
+            //public required string Kenteken { get; set; }
 
             public List<Camping> Campings { get; set; } = new List<Camping>()
             {
