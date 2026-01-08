@@ -3,7 +3,7 @@
  * Copyright 2011-2024 The Bootstrap Authors
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
-:root,
+/*:root,
 [data-bs-theme=light] {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
@@ -1835,16 +1835,16 @@
 
 .text-nowrap {
   white-space: nowrap !important;
-}
+}*/
 
 /* rtl:begin:remove */
-.text-break {
+/*.text-break {
   word-wrap: break-word !important;
   word-break: break-word !important;
-}
+}*/
 
 /* rtl:end:remove */
-.text-primary {
+/*.text-primary {
   --bs-text-opacity: 1;
   color: rgba(var(--bs-primary-rgb), var(--bs-text-opacity)) !important;
 }
@@ -5397,6 +5397,6 @@
   .d-print-none {
     display: none !important;
   }
-}
+}*/
 
 /*# sourceMappingURL=bootstrap-utilities.css.map */
