@@ -34,7 +34,7 @@ namespace Login.Klant.Page
             {
                 HttpContext.Session.SetString("UserEmail", Input.Email);
 
-                return RedirectToPage("/Index");
+                return RedirectToPage("/Account/Klant/Dashboard/Dashboard");
             }
 
             else
@@ -61,7 +61,7 @@ namespace Login.Klant.Page
             return RedirectToPage("/Account/Klant/InlogKlant");
         }
     }
-    //hallo
+
     public class Camping
     {
         public Guid Id { get; set; }
