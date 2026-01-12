@@ -15,13 +15,12 @@ namespace Login.Klant.Page
 
         public List<Camping> Campings { get; set; } = new List<Camping>()
             {
-
                 new Camping { Id = Guid.NewGuid(), Name = "Camping De Zon" },
                 new Camping { Id = Guid.NewGuid(), Name = "Camping Het Bos" },
                 new Camping { Id = Guid.NewGuid(), Name = "Camping Aan Zee" },
                 new Camping { Id = Guid.NewGuid(), Name = "Les 3 Sources" }
             };
-        
+
         public IActionResult OnPostLogin()
         {
             if (!ModelState.IsValid)
@@ -29,9 +28,12 @@ namespace Login.Klant.Page
                 return Page();
             }
 
+            Input.Email = "admin@test.nl";
+            Input.Password = "Test123!";
             if (Input.Email == "admin@test.nl" && Input.Password == "Test123!")
             {
                 HttpContext.Session.SetString("UserEmail", Input.Email);
+
                 return RedirectToPage("/Index");
             }
 
@@ -77,7 +79,9 @@ namespace Login.Klant.Page
         public string? Password { get; set; }
 
         [Required(ErrorMessage = "Selecteer een camping")]
-        public string? Camping { get; set; }
+        //public string? Camping { get; set; }
+        public Guid CampingId { get; set; }
+
 
 
         public bool? RememberMe { get; set; }

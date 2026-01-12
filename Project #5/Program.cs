@@ -26,11 +26,11 @@ app.UseStaticFiles();
 
 app.Use(async (context, next) =>
 {
-    if (context.Request.Path == "/" || string.IsNullOrEmpty(context.Request.Path))
-    {
-        context.Response.Redirect("/Account/Klant/InlogKlant");
-        return;
-    }
+    //if (context.Request.Path == "/" || string.IsNullOrEmpty(context.Request.Path))
+    //{
+    //    context.Response.Redirect("/Account/Klant/InlogKlant");
+    //    return;
+    //}
 
     await next();
 });
