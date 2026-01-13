@@ -67,7 +67,7 @@ main {
     align-items: center;
 }
 
-    .authScreenForms input, .authScreenForms select, .authScreenForms option {
+    .authScreenForms input, .authScreenForms select, .authScreenForms option, .authScreenFormsApp input, .authScreenFormsApp select, .authScreenFormsApp option {
         background-color: transparent;
         font-family: var(--subheadingFont);
     }
@@ -107,7 +107,7 @@ main {
                 background-color: var(--cobalt);
             }
 
-.loginForm {
+.loginForm, .loginFormApp {
     width: 100%;
     height: 80%;
     display: flex;
@@ -116,15 +116,16 @@ main {
     justify-content: space-evenly;
 }
 
-    .loginForm .form-group {
+    .loginForm .form-group, .loginFormApp .form-group {
         height: 30%;
         width: 100%;
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
     }
 
-        .loginForm .form-group input {
+        .loginForm .form-group input, .loginFormApp .form-group input {
             width: 100%;
             height: 70%;
             color: var(--midnight);
@@ -136,7 +137,7 @@ main {
             overflow-x: hidden;
         }
 
-.loginHeading {
+.loginHeading{
     height: 20%;
 }
 
@@ -157,7 +158,7 @@ main {
     width: 80%;
 }
 
-.loginForm .btn {
+.loginForm .btn,.loginFormApp .btn {
     background-color: var(--ochre);
     border: none;
     color: var(--lace);
@@ -172,7 +173,7 @@ main {
 
 .registerBtn {
     font-family: var(--subheadingFont);
-    color: var(--cobalt);
+    color: var(--midnight);
     text-decoration: none;
 }
 
@@ -182,4 +183,106 @@ main {
 
 .text-danger {
     color: darkred;
+    font-family: var(--subheadingFont);
+}
+
+/*app styling*/
+.waarschuwingscherm {
+    display: none;
+    height: 100%;
+}
+
+    .waarschuwingscherm .wrapper {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .waarschuwingscherm figure {
+        padding: 0;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .waarschuwingscherm img {
+        width: 80%;
+    }
+
+#waarschuwing {
+    font-family: var(--headingFont);
+    font-size: 26px;
+    text-align: center;
+    color: var(--midnight);
+}
+
+
+.inlogSchermApp {
+    background-image: url(/img/authBgImgPhone.png);
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .inlogSchermApp .wrapperApp {
+        height: 85%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+    .inlogSchermApp h2 {
+        padding: 0;
+        margin: 0;
+        font-family: var(--headingFont);
+        font-size: 38px;
+        text-align: right;
+    }
+
+    .loginHeaderApp{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        width: 100%;
+    }
+
+.logoMarkDarkApp {
+    padding: 0px;
+    margin: 0px;
+    height: 10%;
+}
+
+    .logoMarkDarkApp img {
+        width: 64px;
+    }
+
+.authScreenFormsApp {
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5%;
+    align-items: center;
+}
+/*media screens*/
+@media screen and (min-width: 601px) {
+    .waarschuwingscherm {
+        display: block;
+    }
+
+    .inlogSchermApp {
+        display: none;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    #waarschuwing {
+        font-size: 18px;
+    }
 }

@@ -2,3 +2,58 @@
 @model Project__5.Pages.Account.Bezoeker.Bezoeker_Inlog_Model
 @{
 }
+
+
+@section waarschuwingscherm {
+	<article class="waarschuwingscherm">
+
+		<div class="wrapper">
+			<figure class="beeldmerk">
+				<img src="~/img/mainlogo.png" alt="CampingKeep Beeldmerk Donker" />
+			</figure>
+
+			<section id="waarschuwing">
+				Oeps! Deze app is alleen toegankelijk op mobiele apparaten.
+			</section>
+		</div>
+	</article>
+}
+
+
+<main class="inlogSchermApp">
+	<div class="wrapperApp">
+		<div class="loginHeadingApp">
+			<figure class="logoMarkDarkApp">
+				<img src="/img/beeldmerkDonkerImg.png" />
+			</figure>
+		</div>
+
+
+
+
+		<section class="authScreenFormsApp">
+			<div class="loginHeaderApp">
+				<h2>Log in</h2>
+			</div>
+
+			<form method="post" asp-page-handler="" class="loginFormApp">
+				<div class="form-group">
+					
+					<input asp-for="Input.Email" class="form-control" placeholder="E-mail*" />
+					<span asp-validation-for="Input.Email" class="text-danger"></span>
+				</div>
+
+				<div class="form-group">
+					
+					<input asp-for="Input.Password" class="form-control" placeholder="Wachtwoord*" />
+					<span asp-validation-for="Input.Password" class="text-danger"></span>
+				</div>
+
+
+				<button type="submit" class="btn">Inloggen</button>
+
+			</form>
+			<a asp-page="/Account/Bezoeker/RegristratieBezoeker" class="registerBtn btn">Heeft u nog geen account? Registreer hier.</a>
+		</section>
+	</div>
+</main>
