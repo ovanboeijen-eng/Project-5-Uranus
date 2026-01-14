@@ -84,7 +84,7 @@ namespace RegristratieKlant
         [Required(ErrorMessage = "Bevestig je wachtwoord")]
         [DataType(DataType.Password)]
         [Display(Name = "Bevestig wachtwoord")]
-        [Compare("Password", ErrorMessage = "Wachtwoorden komen niet overeen")]
+        [Compare("Wachtwoord", ErrorMessage = "Wachtwoorden komen niet overeen")]
         public required string BevestigWachtwoord { get; set; }
 
     }

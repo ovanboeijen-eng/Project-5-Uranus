@@ -1,0 +1,42 @@
+﻿@page
+@{
+}
+
+<main class="homeScreen desktopOnly">
+	<div class="wrapper">
+		<figure class="mainlogo">
+			<img src="~/img/mainlogo.png" alt="CampKeeper mainlogo" />
+		</figure>
+
+		<div class="subheading">
+			<h2> Welkom bij CampingKeeper dashboard.</h2>
+		</div>
+		<section class="homeSelection">
+			<a asp-page="/Account/loginMerged" class="homeLoginBtn btn">
+				Bestaande klant
+			</a>
+			<a asp-page="/Account/registrationMerged" class="homeRegisterBtn btn">
+				Nieuwe klant
+			</a>
+		</section>
+	</div>
+</main>
+
+<main class="homeScreen mobileOnly">
+	<div class="wrapper">
+		<figure class="mainlogo">
+			<img src="~/img/mainlogo.png" alt="CampKeeper mainlogo" />
+		</figure>
+		<div class="subheading">
+			<h2> Welkom bij QR-code scanner.</h2>
+		</div>
+		<section class="homeSelection">
+			<a asp-page="/Account/loginMerged" class="homeLoginBtn btn">
+				Inloggen
+			</a>
+			<a asp-page="/Account/registrationMerged" class="homeRegisterBtn btn">
+				Registreren
+			</a>
+		</section>
+	</div>
+</main>

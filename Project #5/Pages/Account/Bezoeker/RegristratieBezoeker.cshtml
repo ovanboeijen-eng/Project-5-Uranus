@@ -3,24 +3,7 @@
 @{
 }
 
-
-@section waarschuwingscherm {
-	<article class="waarschuwingscherm">
-
-		<div class="wrapper">
-			<figure class="beeldmerk">
-				<img src="~/img/mainlogo.png" alt="CampingKeep Beeldmerk Donker" />
-			</figure>
-
-			<section id="waarschuwing">
-				Oeps! Deze app is alleen toegankelijk op mobiele apparaten.
-			</section>
-		</div>
-	</article>
-}
-
-
-<main class="registratieSchermApp">
+<main class="registratieSchermApp mobileOnly">
 	<div class="wrapperApp">
 		<div class="loginHeadingApp">
 			<figure class="logoMarkDarkApp">
@@ -72,7 +55,7 @@
 				<button type="submit" class="btn">Inloggen</button>
 
 			</form>
-			<a asp-page="/Account/Bezoeker/InlogBezoeker" class="registerBtn btn">Heeft u nog geen account? Registreer hier.</a>
+			<a asp-page="/Account/Bezoeker/InlogBezoeker" class="registerBtn btn">Heeft u al een account? Log hier in.</a>
 		</section>
 	</div>
 </main>

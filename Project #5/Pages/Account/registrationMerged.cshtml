@@ -1,0 +1,80 @@
+﻿@page
+@model Project.Pages.Account.RegisterMergedModel
+@{
+    ViewData["Title"] = "Registreren";
+}
+
+
+<main class="authScreen desktopOnly">
+    <section class="authScreenImg"></section>
+
+    <div class="wrapper">
+        <div class="loginHeading">
+            <figure class="logoMarkDark">
+                <img src="/img/beeldmerkDonkerImg.png" alt="Logo" />
+            </figure>
+            <h2>Registreer</h2>
+        </div>
+
+        <section class="authScreenForms">
+
+            <form method="post" asp-page-handler="DesktopRegister" class="loginForm">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                    <input asp-for="DesktopInput.Email" class="form-control" placeholder="E-mail*" />
+                    <span asp-validation-for="DesktopInput.Email" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <input asp-for="DesktopInput.Wachtwoord" class="form-control" placeholder="Wachtwoord*" />
+                    <span asp-validation-for="DesktopInput.Wachtwoord" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <input asp-for="DesktopInput.BevestigWachtwoord" class="form-control" placeholder="Bevestig wachtwoord*" />
+                    <span asp-validation-for="DesktopInput.BevestigWachtwoord" class="text-danger"></span>
+                </div>
+
+                <button type="submit" class="btn">Registreren</button>
+            </form>
+
+            <a asp-page="/Account/loginMerged" class="registerBtn btn">Heeft u al een account? Log hier in.</a>
+        </section>
+    </div>
+</main>
+
+
+<main class="registratieSchermApp mobileOnly">
+    <div class="wrapperApp">
+        <div class="loginHeadingApp">
+            <figure class="logoMarkDarkApp">
+                <img src="/img/beeldmerkDonkerImg.png" alt="Logo" />
+            </figure>
+        </div>
+
+        <section class="authScreenFormsApp">
+            <div class="loginHeaderApp">
+                <h2>Registreer</h2>
+            </div>
+
+            <form method="post" asp-page-handler="MobileRegister" class="loginFormApp">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+              @*   <div class="form-group">
+                    <input asp-for="MobileInput.Email" class="form-control" placeholder="E-mail*" />
+                    <span asp-validation-for="MobileInput.Email" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <input asp-for="MobileInput.Wachtwoord" class="form-control" placeholder="Wachtwoord*" />
+                    <span asp-validation-for="MobileInput.Wachtwoord" class="text-danger"></span>
+                </div> *@
+
+                <button type="submit" class="btn">Registreren</button>
+            </form>
+
+            <a asp-page="/Account/loginMerged" class="registerBtn btn">Heeft u al een account? Log hier in.</a>
+        </section>
+    </div>
+</main>
