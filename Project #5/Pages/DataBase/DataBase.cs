@@ -4,6 +4,7 @@ using MySql.Data.MySqlClient;
 namespace Project__5.Pages.DataBase
 {
     public class DataBase
+// hello
     {
         private MySqlConnectionStringBuilder builder = new ();
         private MySqlConnection conn = new MySqlConnection("Server=192.168.42.3;Database=CampKeeper;User Id=Global;Password=@@rdaPPel23");
