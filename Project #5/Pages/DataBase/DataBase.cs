@@ -5,7 +5,11 @@ namespace Project__5.Pages.DataBase
 {
     public class DataBase
     {
-       private MySqlConnection conn = new MySqlConnection("");
+        private MySqlConnection conn = new MySqlConnection("Server=192.168.42.3;Database=CampKeeper;User Id=CampKeeper;Password=@@rdaPPel23");
+        public MySqlConnection GetConnection()
+        {
+            return conn; 
+        }
 
 
         public void GetHuurder()
@@ -18,8 +22,8 @@ namespace Project__5.Pages.DataBase
                 {
                     while (reader.Read())
                     {
-                        string naam = reader["naam"].ToString();
-                        string email = reader["email"].ToString();
+                        string naam = reader["email"].ToString();
+                        string email = reader["wachtwoord"].ToString();
                     }
                     conn.Close();
 
