@@ -6,6 +6,7 @@ namespace Login.Klant.Page
 {
     public class LoginKlantModel : PageModel
     {
+
         [BindProperty]
         public required LoginInput Input { get; set; }
 
@@ -20,28 +21,29 @@ namespace Login.Klant.Page
                 new Camping { Id = Guid.NewGuid(), Name = "Camping Aan Zee" },
                 new Camping { Id = Guid.NewGuid(), Name = "Les 3 Sources" }
             };
+        public void OnGet()
+        {
+        }
 
         public IActionResult OnPostLogin()
         {
-            if (!ModelState.IsValid)
+
+            var db = new Project__5.Pages.DataBase.DataBase();
+
+
+            bool success = db.GetUserByEmailAndPassword(Input.Email!, Input.Password!);
+
+            if (success)
             {
-                return Page();
+                HttpContext.Session.SetString("UserEmail", Input.Email!);
+                return RedirectToPage("/Index");
             }
-
-            Input.Email = "admin@test.nl";
-            Input.Password = "Test123!";
-            if (Input.Email == "admin@test.nl" && Input.Password == "Test123!")
-            {
-                HttpContext.Session.SetString("UserEmail", Input.Email);
-
-                return RedirectToPage("/Account/Klant/Dashboard/Dashboard");
-            }
-
             else
             {
                 ErrorMessage = "Ongeldige inloggegevens";
                 return Page();
             }
+
         }
 
         public IActionResult OnPostSelectCamping()
@@ -61,7 +63,7 @@ namespace Login.Klant.Page
             return RedirectToPage("/Account/Klant/InlogKlant");
         }
     }
-
+    //hallo
     public class Camping
     {
         public Guid Id { get; set; }
