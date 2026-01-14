@@ -11,15 +11,19 @@ namespace Login.Klant.Page
 
         public string? ErrorMessage { get; set; }
 
-        public Guid SelectedCampingId { get; set; }
+        //public Guid SelectedCampingId { get; set; }
 
-        public List<Camping> Campings { get; set; } = new List<Camping>()
-            {
-                new Camping { Id = Guid.NewGuid(), Name = "Camping De Zon" },
-                new Camping { Id = Guid.NewGuid(), Name = "Camping Het Bos" },
-                new Camping { Id = Guid.NewGuid(), Name = "Camping Aan Zee" },
-                new Camping { Id = Guid.NewGuid(), Name = "Les 3 Sources" }
-            };
+        //public List<Camping> Campings { get; set; } = new List<Camping>()
+        //    {
+        //        new Camping { Id = Guid.NewGuid(), Name = "Camping De Zon" },
+        //        new Camping { Id = Guid.NewGuid(), Name = "Camping Het Bos" },
+        //        new Camping { Id = Guid.NewGuid(), Name = "Camping Aan Zee" },
+        //        new Camping { Id = Guid.NewGuid(), Name = "Les 3 Sources" }
+        //    };
+
+        public void OnGet()
+        {
+        }
 
         public IActionResult OnPostLogin()
         {
@@ -44,16 +48,16 @@ namespace Login.Klant.Page
             }
         }
 
-        public IActionResult OnPostSelectCamping()
-        {
-            if (SelectedCampingId == Guid.Empty)
-            {
-                ModelState.AddModelError("", "Selecteer een camping.");
-                return Page();
-            }
+        //public IActionResult OnPostSelectCamping()
+        //{
+        //    if (SelectedCampingId == Guid.Empty)
+        //    {
+        //        ModelState.AddModelError("", "Selecteer een camping.");
+        //        return Page();
+        //    }
 
-            return RedirectToPage("Index");
-        }
+        //    return RedirectToPage("Index");
+        //}
 
         public IActionResult OnPostLogout()
         {
@@ -62,11 +66,11 @@ namespace Login.Klant.Page
         }
     }
 
-    public class Camping
-    {
-        public Guid Id { get; set; }
-        public required string Name { get; set; }
-    }
+    //public class Camping
+    //{
+    //    public Guid Id { get; set; }
+    //    public required string Name { get; set; }
+    //}
 
     public class LoginInput
     {
@@ -78,9 +82,9 @@ namespace Login.Klant.Page
         [DataType(DataType.Password)]
         public string? Password { get; set; }
 
-        [Required(ErrorMessage = "Selecteer een camping")]
-        //public string? Camping { get; set; }
-        public Guid CampingId { get; set; }
+        //[Required(ErrorMessage = "Selecteer een camping")]
+        ////public string? Camping { get; set; }
+        //public Guid CampingId { get; set; }
 
 
 
