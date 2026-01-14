@@ -14,4 +14,12 @@
     <None Remove="wwwroot\lib\bootstrap\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Remove="Pages\Account\Klant\RegistratieKlant.cshtml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Pages\Account\Klant\RegistratieKlant.cshtml" />
+  </ItemGroup>
+
 </Project>
