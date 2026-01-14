@@ -1,5 +1,6 @@
-﻿@page
-@model Project__5.Pages.Account.Bezoeker.Bezoeker_Inlog_Model
+﻿@* @page
+@model Bezoeker_Registratie_Model
+@using RegristratieBezoeker
 @{
 }
 
@@ -19,7 +20,7 @@
 			</div>
 
 			<form method="post" asp-page-handler="" class="loginFormApp">
-				@* <div class="form-group">
+				<div class="form-group">
 					<label for="campingSelect">Kies een camping</label>
 					<select id="campingSelect" name="SelectedCampingId" class="form-control">
 						<option value="">-- Selecteer een camping --</option>
@@ -29,28 +30,28 @@
 						}
 					</select>
 					<small class="form-text text-muted">Je kunt later nog een camping kiezen of wijzigen.</small>
-				</div>  *@
+				</div> 
 
 				<div class="form-group">
 					<input asp-for="Input.Email" class="form-control" placeholder="E-mail*" />
 					<span asp-validation-for="Input.Email" class="text-danger"></span>
 				</div>
 
-				@* <div class="form-group">
+				<div class="form-group">
 					<input asp-for="Input.Kenteken" class="form-control" placeholder="Kenteken*" />
 					<span asp-validation-for="Input.Kenteken" class="text-danger"></span>
-				</div> *@
+				</div>
 
 				<div class="form-group">
 
-					<input asp-for="Input.Password" class="form-control" placeholder="Wachtwoord*" />
-					<span asp-validation-for="Input.Password" class="text-danger"></span>
+					<input asp-for="Input." class="form-control" placeholder="Wachtwoord*" />
+					<span asp-validation-for="Input.Wachtwoord" class="text-danger"></span>
 				</div>
 
-				@* <div class="form-group">
+				<div class="form-group">
 					<input asp-for="Input.BevestigWachtwoord" class="form-control" placeholder="Bevestig wachtwoord*" />
 					<span asp-validation-for="Input.BevestigWachtwoord" class="text-danger"></span>
-				</div> *@
+				</div>
 
 				<button type="submit" class="btn">Inloggen</button>
 
@@ -58,4 +59,4 @@
 			<a asp-page="/Account/Bezoeker/InlogBezoeker" class="registerBtn btn">Heeft u al een account? Log hier in.</a>
 		</section>
 	</div>
-</main>
+</main> *@
