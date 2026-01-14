@@ -31,7 +31,7 @@ namespace Login.Klant.Page
             var db = new Project__5.Pages.DataBase.DataBase();
 
           
-            bool success = db.GetUserByEmailAndPassword(Input.Email!, Input.Password!);
+            bool success = db.GetKlantByEmailAndPassword(Input.Email!, Input.Password!);
 
             if (success)
             {

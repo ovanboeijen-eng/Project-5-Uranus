@@ -20,7 +20,7 @@ namespace Project__5.Pages.DataBase
         }
 
 
-        public bool GetUserByEmailAndPassword(string email, string password)
+        public bool GetHuurderByEmailAndPassword(string email, string password)
         {
             conn.Open();
             string query = "SELECT COUNT(*) FROM Huurder WHERE email = @Email AND wachtwoord = @Wachtwoord";
@@ -32,7 +32,21 @@ namespace Project__5.Pages.DataBase
 
                 var count = cmd.ExecuteScalar();
                 return (count != null && Convert.ToInt32(count) > 0);
-                }
+            }
+        }
+        public bool GetKlantByEmailAndPassword(string email, string password)
+        {
+            conn.Open();
+            string query = "SELECT COUNT(*) FROM Huurder WHERE email = @Email AND wachtwoord = @Wachtwoord";
+
+            using (MySqlCommand cmd = new MySqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@Email", email);
+                cmd.Parameters.AddWithValue("@Wachtwoord", password);
+
+                var count = cmd.ExecuteScalar();
+                return (count != null && Convert.ToInt32(count) > 0);
+            }
             }
         }
     };
