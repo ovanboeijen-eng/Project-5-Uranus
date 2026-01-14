@@ -6,7 +6,7 @@ namespace Login.Klant.Page
 {
     public class LoginKlantModel : PageModel
     {
-
+       
         [BindProperty]
         public required LoginInput Input { get; set; }
 
@@ -27,10 +27,10 @@ namespace Login.Klant.Page
 
         public IActionResult OnPostLogin()
         {
-
+        
             var db = new Project__5.Pages.DataBase.DataBase();
 
-
+          
             bool success = db.GetUserByEmailAndPassword(Input.Email!, Input.Password!);
 
             if (success)
