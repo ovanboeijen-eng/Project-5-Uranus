@@ -6,13 +6,13 @@ namespace Project__5.Pages.DataBase
     public class DataBase
     {
         private MySqlConnectionStringBuilder builder = new ();
-        private MySqlConnection conn = new MySqlConnection("Server=192.168.42.3;Database=CampKeeper;User Id=CampKeeper;Password=@@rdaPPel23");
+        private MySqlConnection conn = new MySqlConnection("Server=192.168.42.3;Database=CampKeeper;User Id=Global;Password=@@rdaPPel23");
         public MySqlConnection GetConnection()
         {
-            builder.Server = "";
-            builder.Database = "";
-            builder.UserID = "";
-            builder.Password = "";
+            builder.Server = "192.168.42.3";
+            builder.Database = "CampKeeper";
+            builder.UserID = "Global";
+            builder.Password = "@@rdaPPel23";
             conn = new MySqlConnection(builder.ConnectionString);
 
             return conn; 
@@ -30,9 +30,8 @@ namespace Project__5.Pages.DataBase
                 cmd.Parameters.AddWithValue("@Wachtwoord", password);
 
                 var count = cmd.ExecuteScalar();
-                return (count != null && Convert.ToInt32(count) > 0)
+                return (count != null && Convert.ToInt32(count) > 0);
                 }
             }
         }
-    }
-}
+    };
