@@ -26,9 +26,9 @@ namespace RegristratieBezoeker
         //        new Camping { Id = Guid.NewGuid(), Name = "Les 3 Sources" }
             };
     }
-}
 
-    public class RegristratieInput
+
+public class RegristratieInput
 {
     [Required]
     [EmailAddress]
@@ -49,33 +49,18 @@ namespace RegristratieBezoeker
     {
     }
 
-    public IActionResult OnPostRegister()
-    {
-        if (!ModelState.IsValid)
-        {
-            return Page();
-        }
-        if (Input.Wachtwoord != Input.BevestigWachtwoord)
-        {
-            ErrorMessage = "Wachtwoorden komen niet overeen.";
-            return Page();
-        }
-    
+    //public IActionResult OnPostRegister()
+    //{
 
+    //    }
+    //}
 
-            HttpContext.Session.SetString("UserEmail", Input.Email);
-            //HttpContext.Session.SetString("LicensePlate", Input.Kenteken);
-
-            return RedirectToPage("/Account/Inlog");
-        }
-    }
-
-//public class Camping
-//        {
-//        public Guid Id { get; set; }
-//        public required string Name { get; set; }
-//}
-public class RegisterInput
+    //public class Camping
+    //        {
+    //        public Guid Id { get; set; }
+    //        public required string Name { get; set; }
+    //}
+    public class RegisterInput
     {
         [Required(ErrorMessage = "E-mailadres is verplicht")]
         [EmailAddress(ErrorMessage = "Ongeldig e-mailadres")]
@@ -98,6 +83,6 @@ public class RegisterInput
         [Display(Name = "Bevestig wachtwoord")]
         [Compare("Wachtwoord", ErrorMessage = "Wachtwoorden komen niet overeen")]
         public required string BevestigWachtwoord { get; set; }
-
     }
 }
+
