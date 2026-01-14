@@ -10,7 +10,7 @@ namespace Project__5.Pages
         {
             if (HttpContext.Session.GetString("UserEmail") == null)
             {
-                return RedirectToPage("/Account/Klant/InlogKlant");
+                return RedirectToPage("/Home");
             }
 
             return Page();
