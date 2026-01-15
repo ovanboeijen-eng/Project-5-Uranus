@@ -54,12 +54,22 @@ namespace Project__5.Pages.DataBase
         public bool Create(string email, string huisje, string kenteken)
         {
             conn.Open();
-            string query = "INSERT INTO Huurder (email, kenteken, huisje) VALUES (@Email,  @Kenteken, @Huisje)";
+            string query = "INSERT INTO Huurder (email, huisje) VALUES (@Email, @Huisje)";
             using (MySqlCommand cmd = new MySqlCommand(query, conn))
             {
                 cmd.Parameters.AddWithValue("@Email", email);
-                cmd.Parameters.AddWithValue("@Kenteken", kenteken);
                 cmd.Parameters.AddWithValue("@Huisje", huisje);
+                int result = cmd.ExecuteNonQuery();
+                return result > 0;
+            }
+        }
+
+        public bool Create(string kenteken)
+        {             conn.Open();
+            string query = "INSERT INTO Auto (kenteken) VALUES (@Kenteken)";
+            using (MySqlCommand cmd = new MySqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@Kenteken", kenteken);
                 int result = cmd.ExecuteNonQuery();
                 return result > 0;
             }
