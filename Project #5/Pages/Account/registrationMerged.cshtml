@@ -1,5 +1,6 @@
-﻿@page
-@model Project.Pages.Account.RegisterMergedModel
+﻿@* @page
+@using Registratie.Pages
+
 @{
     ViewData["Title"] = "Registreren";
 }
@@ -42,7 +43,7 @@
             <a asp-page="/Account/loginMerged" class="registerBtn btn">Heeft u al een account? Log hier in.</a>
         </section>
     </div>
-</main> *@
+</main> *
 
 
 <main class="registratieSchermApp mobileOnly">
@@ -58,23 +59,24 @@
                 <h2>Registreer</h2>
             </div>
 
-            <form method="post" asp-page-handler="MobileRegister" class="loginFormApp">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <from method="post" asp-page-handler="RegistrationMerged" class="registratieSchermApp">
+                <div asp-validation-summary=ModelOnly class="text-danger"></div>
 
-              @*   <div class="form-group">
-                    <input asp-for="MobileInput.Email" class="form-control" placeholder="E-mail*" />
-                    <span asp-validation-for="MobileInput.Email" class="text-danger"></span>
+
+                <div class="form-group">
+                    <input aps-for="Email" class="form-control" placeholder="E-mail*" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <input asp-for="MobileInput.Wachtwoord" class="form-control" placeholder="Wachtwoord*" />
-                    <span asp-validation-for="MobileInput.Wachtwoord" class="text-danger"></span>
-                </div> *@
+                    <input asp-for="Wachtwoord" class="form-control" placeholder="Wachtwoord*" />
+                    <span asp-validation-for="Wachtwoord" class="text-danger"></span>
+                </div>
 
                 <button type="submit" class="btn">Registreren</button>
-            </form>
+                </>
 
-            <a asp-page="/Account/loginMerged" class="registerBtn btn">Heeft u al een account? Log hier in.</a>
+                <a asp-page="/Account/loginMerged" class="registerBtn btn">Heeft u al een account? Log hier in.</a>
         </section>
     </div>
-</main>
+</main> *@

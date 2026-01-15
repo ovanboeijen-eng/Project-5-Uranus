@@ -1,0 +1,73 @@
+﻿@page
+@model Project__5.Pages.Dashboard.DashboardModel
+@{
+}
+
+<h2>Dashboard</h2>
+
+<hr />
+
+<!-- FORM: NIEUWE INSCHRIJVING -->
+<form method="post" asp-page-handler="Submit">
+    <div>
+        <label asp-for="Email"></label>
+        <input asp-for="Email" />
+        <span asp-validation-for="Email"></span>
+    </div>
+
+    <div>
+        <label asp-for="CampinghuisNummer"></label>
+        <input asp-for="CampinghuisNummer" />
+        <span asp-validation-for="CampinghuisNummer"></span>
+    </div>
+
+    <div>
+        <label asp-for="Kenteken"></label>
+        <input asp-for="Kenteken" />
+        <span asp-validation-for="Kenteken"></span>
+    </div>
+
+    <button type="submit">Toevoegen</button>
+</form>
+
+<hr />
+
+<!-- VOORBEELD TABEL (vervang items door je echte lijst) -->
+<table border="1" cellpadding="5">
+    <thead>
+        <tr>
+            <th>Email</th>
+            <th>Campinghuis</th>
+            <th>Kenteken</th>
+            <th>Betaald</th>
+            <th>Acties</th>
+        </tr>
+    </thead>
+    <tbody>
+        @* VOORBEELD DATA *@
+        <tr>
+            <td>test@mail.nl</td>
+            <td>12</td>
+            <td>AB-123-CD</td>
+            <td>Nee</td>
+            <td>
+                <!-- VERWIJDER -->
+                <form method="post" asp-page-handler="Verwijder" style="display:inline;">
+                    <input type="hidden" name="id" value="test@mail.nl" />
+                    <button type="submit">Verwijder</button>
+                </form>
+
+                <!-- BETAAL -->
+                <form method="post" asp-page-handler="Betaal" style="display:inline;">
+                    <input type="hidden" name="id" value="test@mail.nl" />
+                    <button type="submit">Betaald</button>
+                </form>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+m>

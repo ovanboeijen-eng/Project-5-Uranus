@@ -1,12 +1,14 @@
 ﻿
 using MySql.Data.MySqlClient;
+using System.Data;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Project__5.Pages.DataBase
 {
     public class DataBase
-// hello
+    // hello
     {
-        private MySqlConnectionStringBuilder builder = new ();
+        private MySqlConnectionStringBuilder builder = new();
         private MySqlConnection conn = new MySqlConnection("Server=192.168.42.3;Database=CampKeeper;User Id=Global;Password=@@rdaPPel23");
         public MySqlConnection GetConnection()
         {
@@ -16,7 +18,7 @@ namespace Project__5.Pages.DataBase
             builder.Password = "@@rdaPPel23";
             conn = new MySqlConnection(builder.ConnectionString);
 
-            return conn; 
+            return conn;
         }
 
 
@@ -47,6 +49,60 @@ namespace Project__5.Pages.DataBase
                 var count = cmd.ExecuteScalar();
                 return (count != null && Convert.ToInt32(count) > 0);
             }
+        }
+
+        public bool Create(string email, string huisje, string kenteken)
+        {
+            conn.Open();
+            string query = "INSERT INTO Huurder (email, kenteken, huisje) VALUES (@Email,  @Kenteken, @Huisje)";
+            using (MySqlCommand cmd = new MySqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@Email", email);
+                cmd.Parameters.AddWithValue("@Kenteken", kenteken);
+                cmd.Parameters.AddWithValue("@Huisje", huisje);
+                int result = cmd.ExecuteNonQuery();
+                return result > 0;
             }
         }
-    };
+
+        public bool DashboardBetaald(string email)
+        {
+            conn.Open();
+            string query = "UPDATE Huurder SET isBetaald = 1  WHERE email = @Email";
+            using (MySqlCommand cmd = new MySqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@Email", email);
+                int result = cmd.ExecuteNonQuery();
+                return result > 0;
+            }
+
+        }
+
+        public bool Verwijder(string email)
+        {
+            conn.Open();
+            string query = "DELETE FROM Huurder WHERE email = @Email";
+            using (MySqlCommand cmd = new MySqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@Email", email);
+                int result = cmd.ExecuteNonQuery();
+                return result == 1;
+            }
+        }
+
+        public bool PasAan (string email, string huisje, string kenteken)
+        {
+            conn.Open();
+            string query = "UPDATE Huurder SET huisje = @Huisje, kenteken = @Kenteken WHERE email = @Email";
+            using (MySqlCommand cmd = new MySqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@Email", email);
+                cmd.Parameters.AddWithValue("@Kenteken", kenteken);
+                cmd.Parameters.AddWithValue("@Huisje", huisje);
+                int result = cmd.ExecuteNonQuery();
+                return result > 0;
+            }
+        }
+
+    }
+};
