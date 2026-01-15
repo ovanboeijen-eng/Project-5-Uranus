@@ -72,6 +72,7 @@ namespace Project__5.Pages.DataBase
                 return cmd.ExecuteNonQuery() > 0;
             }
         }
+        //hallo
 
         public bool CreateAuto(string kenteken)
         {
