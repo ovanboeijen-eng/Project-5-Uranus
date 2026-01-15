@@ -7,12 +7,13 @@ namespace Project.Pages.Account
 {
     public class RegisterMergedModel : PageModel
     {
-        [BindProperty]
-        public RegristratieKlant.RegisterInput DesktopInput { get; set; }
+        //[BindProperty]
+        //public RegristratieKlant.RegisterInput DesktopInput { get; set; }
 
 
         [BindProperty]
-        public RegristratieBezoekerModel MobileInput { get; set; } = new();
+        public Pages_Account_Bezoeker_RegristratieBezoeker MobileInput { get; set; } = new();
+
     }
 }
 
