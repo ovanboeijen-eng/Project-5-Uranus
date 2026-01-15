@@ -51,44 +51,65 @@ namespace Project__5.Pages.DataBase
             }
         }
 
-        public bool CreateHuurder(string email)
+        public bool CreateGeheel(string email, string ruimte, string kenteken)
         {
+            using var conn = GetConnection();
             conn.Open();
-            string query = "INSERT INTO Huurder (email) VALUES (@Email)";
-            using (MySqlCommand cmd = new MySqlCommand(query, conn))
+
+            using var transaction = conn.BeginTransaction();
+
+            try
             {
-                cmd.Parameters.AddWithValue("@Email", email);
-                return cmd.ExecuteNonQuery() > 0;
+                string huurderQuery = """
+            INSERT INTO Huurder (email, isBetaald)
+            VALUES (@Email, 0)
+        """;
+
+                using (var cmd = new MySqlCommand(huurderQuery, conn, transaction))
+                {
+                    cmd.Parameters.AddWithValue("@Email", email);
+                    cmd.ExecuteNonQuery();
+                }
+
+                string huisjeQuery = """
+            INSERT INTO Huisje (ruimte, email)
+            VALUES (@Ruimte, @Email)
+        """;
+
+                using (var cmd = new MySqlCommand(huisjeQuery, conn, transaction))
+                {
+                    cmd.Parameters.AddWithValue("@Ruimte", ruimte);
+                    cmd.Parameters.AddWithValue("@Email", email);
+                    cmd.ExecuteNonQuery();
+                }
+
+                string autoQuery = """
+            INSERT INTO Auto (kenteken, email)
+            VALUES (@Kenteken, @Email)
+        """;
+
+                using (var cmd = new MySqlCommand(autoQuery, conn, transaction))
+                {
+                    cmd.Parameters.AddWithValue("@Kenteken", kenteken);
+                    cmd.Parameters.AddWithValue("@Email", email);
+                    cmd.ExecuteNonQuery();
+                }
+
+                transaction.Commit();
+                return true;
+            }
+            catch
+            {
+                transaction.Rollback();
+                return false;
             }
         }
 
-        public bool CreateHuisje(string huisje_ID)
-        {
-            conn.Open();
-            string query = "INSERT INTO Huisje (huisje_ID) VALUES (@Huisje_ID)";
-            using (MySqlCommand cmd = new MySqlCommand(query, conn))
-            {
-                cmd.Parameters.AddWithValue("@Huisje_ID", huisje_ID);
-                return cmd.ExecuteNonQuery() > 0;
-            }
-        }
-        //hallo
-
-        public bool CreateAuto(string kenteken)
-        {
-            conn.Open();
-            string query = "INSERT INTO Auto (kenteken) VALUES (@Kenteken)";
-            using (MySqlCommand cmd = new MySqlCommand(query, conn))
-            {
-                cmd.Parameters.AddWithValue("@Kenteken", kenteken);
-                return cmd.ExecuteNonQuery() > 0;
-            }
-        }
 
         public bool DashboardBetaald(string email)
         {
             conn.Open();
-            string query = "UPDATE Huurder SET isBetaald = 1  WHERE email = @Email";
+            string query = "UPDATE Huurder SET isBetaling = 1  WHERE email = @Email";
             using (MySqlCommand cmd = new MySqlCommand(query, conn))
             {
                 cmd.Parameters.AddWithValue("@Email", email);
@@ -110,19 +131,53 @@ namespace Project__5.Pages.DataBase
             }
         }
 
-        public bool PasAan (string email, string huisje, string kenteken)
+        public bool PasAan(string email, string ruimte, string kenteken)
         {
+            using var conn = GetConnection();
             conn.Open();
-            string query = "UPDATE Huurder SET huisje = @Huisje, kenteken = @Kenteken WHERE email = @Email";
-            using (MySqlCommand cmd = new MySqlCommand(query, conn))
+
+            using var transaction = conn.BeginTransaction();
+
+            try
             {
-                cmd.Parameters.AddWithValue("@Email", email);
-                cmd.Parameters.AddWithValue("@Kenteken", kenteken);
-                cmd.Parameters.AddWithValue("@Huisje", huisje);
-                int result = cmd.ExecuteNonQuery();
-                return result > 0;
+                // Update Huisje
+                string huisjeQuery = """
+            UPDATE Huisje 
+            SET ruimte = @Ruimte 
+            WHERE email = @Email
+        """;
+
+                using (var cmd = new MySqlCommand(huisjeQuery, conn, transaction))
+                {
+                    cmd.Parameters.AddWithValue("@Ruimte", ruimte);
+                    cmd.Parameters.AddWithValue("@Email", email);
+                    cmd.ExecuteNonQuery();
+                }
+
+                // Update Auto
+                string autoQuery = """
+            UPDATE Auto 
+            SET kenteken = @Kenteken 
+            WHERE email = @Email
+        """;
+
+                using (var cmd = new MySqlCommand(autoQuery, conn, transaction))
+                {
+                    cmd.Parameters.AddWithValue("@Kenteken", kenteken);
+                    cmd.Parameters.AddWithValue("@Email", email);
+                    cmd.ExecuteNonQuery();
+                }
+
+                transaction.Commit();
+                return true;
+            }
+            catch
+            {
+                transaction.Rollback();
+                throw;
             }
         }
+
 
     }
 };

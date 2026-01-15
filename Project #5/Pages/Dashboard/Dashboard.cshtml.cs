@@ -10,35 +10,45 @@ namespace Project__5.Pages.Dashboard
 
         [Required(ErrorMessage = "Email is verplicht")]
         [EmailAddress(ErrorMessage = "Ongeldig email adres")]
-        [Display(Name = "Email")]
-        public required string Email { get; set; }
+        public string Email { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Campinghuis nummer is verplicht")]
-        [Display(Name = "Campinghuis Nr.")]
-        public int CampinghuisNummer { get; set; }
+        public int Huisje { get; set; }
 
         [Required(ErrorMessage = "Kenteken is verplicht")]
-        [StringLength(20, ErrorMessage = "Kenteken mag maximaal 20 karakters zijn")]
-        [Display(Name = "Kenteken")]
-        public required string Kenteken { get; set; }
+        [StringLength(20)]
+        public string Kenteken { get; set; } = string.Empty;
 
-        [Display(Name = "Betaald")]
         public bool IsBetaald { get; set; }
-
-        public DateTime AangemaaktOp { get; set; }
 
         public void OnGet()
         {
-            var db = new Project__5.Pages.DataBase.DataBase();
         }
 
+       
         public IActionResult OnPostSubmit()
         {
+            if (!ModelState.IsValid)
+                return Page();
+
             var db = new Project__5.Pages.DataBase.DataBase();
-            db.Create(Email, CampinghuisNummer.ToString(), Kenteken);
+
+            bool success = db.CreateGeheel(
+                Email,
+                Huisje.ToString(),
+                Kenteken
+            );
+
+            if (!success)
+            {
+                ModelState.AddModelError("", "Opslaan mislukt.");
+                return Page();
+            }
+
             return RedirectToPage();
         }
 
+       
         public IActionResult OnPostVerwijder(string id)
         {
             var db = new Project__5.Pages.DataBase.DataBase();
@@ -56,7 +66,11 @@ namespace Project__5.Pages.Dashboard
         public IActionResult OnPostPasAan()
         {
             var db = new Project__5.Pages.DataBase.DataBase();
-            db.PasAan(Email, CampinghuisNummer.ToString(), Kenteken);
+            db.PasAan(
+                Email,
+                Huisje.ToString(),
+                Kenteken
+            );
             return RedirectToPage();
         }
     }
