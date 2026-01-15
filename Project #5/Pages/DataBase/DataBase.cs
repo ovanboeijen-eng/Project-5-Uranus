@@ -51,27 +51,36 @@ namespace Project__5.Pages.DataBase
             }
         }
 
-        public bool Create(string email, string huisje, string kenteken)
+        public bool CreateHuurder(string email)
         {
             conn.Open();
-            string query = "INSERT INTO Huurder (email, huisje) VALUES (@Email, @Huisje)";
+            string query = "INSERT INTO Huurder (email) VALUES (@Email)";
             using (MySqlCommand cmd = new MySqlCommand(query, conn))
             {
                 cmd.Parameters.AddWithValue("@Email", email);
-                cmd.Parameters.AddWithValue("@Huisje", huisje);
-                int result = cmd.ExecuteNonQuery();
-                return result > 0;
+                return cmd.ExecuteNonQuery() > 0;
             }
         }
 
-        public bool Create(string kenteken)
-        {             conn.Open();
+        public bool CreateHuisje(string huisje_ID)
+        {
+            conn.Open();
+            string query = "INSERT INTO Huisje (huisje_ID) VALUES (@Huisje_ID)";
+            using (MySqlCommand cmd = new MySqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@Huisje_ID", huisje_ID);
+                return cmd.ExecuteNonQuery() > 0;
+            }
+        }
+
+        public bool CreateAuto(string kenteken)
+        {
+            conn.Open();
             string query = "INSERT INTO Auto (kenteken) VALUES (@Kenteken)";
             using (MySqlCommand cmd = new MySqlCommand(query, conn))
             {
                 cmd.Parameters.AddWithValue("@Kenteken", kenteken);
-                int result = cmd.ExecuteNonQuery();
-                return result > 0;
+                return cmd.ExecuteNonQuery() > 0;
             }
         }
 
