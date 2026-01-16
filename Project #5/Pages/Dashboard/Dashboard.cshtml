@@ -22,12 +22,13 @@
 		<section class="guestOverview">
 			<table>
 				<thead>
-					<tr>
+					<tr class="headRow">
 						<th>Campinghuis</th>
 						<th>Email</th>
 						<th>Betaald</th>
 						<th>Kenteken</th>
-						<th>Acties</th>
+						<th>Verwijderen</th>
+						<th>Betaling</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -37,115 +38,342 @@
 						<td class="column4 ">Jacques@gmail.com</td>
 						<td class="column5 ">Ja</td>
 						<td class="column4 ">PD-153-X</td>
+						<td class="column 5">
+							<form method="post" asp-page-handler="Verwijder" style="display:inline;">
+								<input type="hidden" name="id" value="test@mail.nl" />
+								<button type="submit">Verwijder</button>
+							</form>
+						</td>
+						<td class="column 6">
+							<form method="post" asp-page-handler="Betaal" style="display:inline;">
+								<input type="hidden" name="id" value="test@mail.nl" />
+								<button type="submit">Betaald</button>
+							</form>
+						</td>
 					</tr>
 					<tr class="row2">
 						<td class="column1 ">2</td>
 						<td class="column4 ">Kees@gmail.com</td>
 						<td class="column5 ">Ja</td>
 						<td class="column4 ">48-PRX-2</td>
+						<td class="column 5">
+							<form method="post" asp-page-handler="Verwijder" style="display:inline;">
+								<input type="hidden" name="id" value="test@mail.nl" />
+								<button type="submit">Verwijder</button>
+							</form>
+						</td>
+						<td class="column 6">
+							<form method="post" asp-page-handler="Betaal" style="display:inline;">
+								<input type="hidden" name="id" value="test@mail.nl" />
+								<button type="submit">Betaald</button>
+							</form>
+						</td>
 					</tr>
 					<tr class="row3">
 						<td class="column1 ">3</td>
 						<td class="column4 ">Marc@gmail.com</td>
 						<td class="column5 ">Ja</td>
 						<td class="column4 ">91-TVP-V</td>
+						<td class="column 5">
+							<form method="post" asp-page-handler="Verwijder" style="display:inline;">
+								<input type="hidden" name="id" value="test@mail.nl" />
+								<button type="submit">Verwijder</button>
+							</form>
+						</td>
+						<td class="column 6">
+							<form method="post" asp-page-handler="Betaal" style="display:inline;">
+								<input type="hidden" name="id" value="test@mail.nl" />
+								<button type="submit">Betaald</button>
+							</form>
+						</td>
 					</tr>
 					<tr class="row4">
 						<td class="column1 ">4</td>
 						<td class="column4 ">David@gmail.com</td>
 						<td class="column5 ">Ja</td>
 						<td class="column4 ">85-KKR-1</td>
+						<td class="column 5">
+							<form method="post" asp-page-handler="Verwijder" style="display:inline;">
+								<input type="hidden" name="id" value="test@mail.nl" />
+								<button type="submit">Verwijder</button>
+							</form>
+						</td>
+						<td class="column 6">
+							<form method="post" asp-page-handler="Betaal" style="display:inline;">
+								<input type="hidden" name="id" value="test@mail.nl" />
+								<button type="submit">Betaald</button>
+							</form>
+						</td>
 					</tr>
 					<tr class="row5">
 						<td class="column1 ">5</td>
 						<td class="column4 ">Evert@gmail.com</td>
 						<td class="column5 ">Ja</td>
 						<td class="column4 ">79-JSN-8</td>
+						<td class="column 5">
+							<form method="post" asp-page-handler="Verwijder" style="display:inline;">
+								<input type="hidden" name="id" value="test@mail.nl" />
+								<button type="submit">Verwijder</button>
+							</form>
+						</td>
+						<td class="column 6">
+							<form method="post" asp-page-handler="Betaal" style="display:inline;">
+								<input type="hidden" name="id" value="test@mail.nl" />
+								<button type="submit">Betaald</button>
+							</form>
+						</td>
 					</tr>
 					<tr class="row6">
 						<td class="column1 ">6</td>
 						<td class="column4 ">Pim@gmail.com</td>
 						<td class="column5 ">Ja</td>
 						<td class="column4 ">XT-134-F</td>
+						<td class="column 5">
+							<form method="post" asp-page-handler="Verwijder" style="display:inline;">
+								<input type="hidden" name="id" value="test@mail.nl" />
+								<button type="submit">Verwijder</button>
+							</form>
+						</td>
+						<td class="column 6">
+							<form method="post" asp-page-handler="Betaal" style="display:inline;">
+								<input type="hidden" name="id" value="test@mail.nl" />
+								<button type="submit">Betaald</button>
+							</form>
+						</td>
 					</tr>
 					<tr class="row7">
 						<td class="column1 ">7</td>
 						<td class="column4   s">Rene@gmail.com</td>
 						<td class="column5 ">Ja</td>
 						<td class="column4 ">14-SPK-8</td>
+						<td class="column 5">
+							<form method="post" asp-page-handler="Verwijder" style="display:inline;">
+								<input type="hidden" name="id" value="test@mail.nl" />
+								<button type="submit">Verwijder</button>
+							</form>
+						</td>
+						<td class="column 6">
+							<form method="post" asp-page-handler="Betaal" style="display:inline;">
+								<input type="hidden" name="id" value="test@mail.nl" />
+								<button type="submit">Betaald</button>
+							</form>
+						</td>
 					</tr>
 					<tr class="row8">
 						<td class="column1 ">8</td>
 						<td class="column4 ">Björn@gmail.com</td>
 						<td class="column5 ">Ja</td>
 						<td class="column4 ">2-FKK-104</td>
+						<td class="column 5">
+							<form method="post" asp-page-handler="Verwijder" style="display:inline;">
+								<input type="hidden" name="id" value="test@mail.nl" />
+								<button type="submit">Verwijder</button>
+							</form>
+						</td>
+						<td class="column 6">
+							<form method="post" asp-page-handler="Betaal" style="display:inline;">
+								<input type="hidden" name="id" value="test@mail.nl" />
+								<button type="submit">Betaald</button>
+							</form>
+						</td>
 					</tr>
 					<tr class="row9">
 						<td class="column1 ">9</td>
 						<td class="column4 ">Ronald@gmail.com</td>
 						<td class="column5 ">Ja</td>
 						<td class="column4 ">66-NPP-4</td>
+						<td class="column 5">
+							<form method="post" asp-page-handler="Verwijder" style="display:inline;">
+								<input type="hidden" name="id" value="test@mail.nl" />
+								<button type="submit">Verwijder</button>
+							</form>
+						</td>
+						<td class="column 6">
+							<form method="post" asp-page-handler="Betaal" style="display:inline;">
+								<input type="hidden" name="id" value="test@mail.nl" />
+								<button type="submit">Betaald</button>
+							</form>
+						</td>
 					</tr>
 					<tr class="row10">
 						<td class="column1 ">10</td>
 						<td class="column4 ">Chung@gmail.com</td>
 						<td class="column5 ">Ja</td>
 						<td class="column4 ">HG-425-B</td>
+						<td class="column 5">
+							<form method="post" asp-page-handler="Verwijder" style="display:inline;">
+								<input type="hidden" name="id" value="test@mail.nl" />
+								<button type="submit">Verwijder</button>
+							</form>
+						</td>
+						<td class="column 6">
+							<form method="post" asp-page-handler="Betaal" style="display:inline;">
+								<input type="hidden" name="id" value="test@mail.nl" />
+								<button type="submit">Betaald</button>
+							</form>
+						</td>
 					</tr>
 					<tr class="row11">
 						<td class="column1 ">11</td>
 						<td class="column4 ">Erdinç@gmail.com</td>
 						<td class="column5 ">Ja</td>
 						<td class="column4 ">35-NK-JK</td>
+						<td class="column 5">
+							<form method="post" asp-page-handler="Verwijder" style="display:inline;">
+								<input type="hidden" name="id" value="test@mail.nl" />
+								<button type="submit">Verwijder</button>
+							</form>
+						</td>
+						<td class="column 6">
+							<form method="post" asp-page-handler="Betaal" style="display:inline;">
+								<input type="hidden" name="id" value="test@mail.nl" />
+								<button type="submit">Betaald</button>
+							</form>
+						</td>
 					</tr>
 					<tr class="row12">
 						<td class="column1 ">12</td>
 						<td class="column4 ">Marjorie@gmail.com</td>
 						<td class="column5 ">Ja</td>
 						<td class="column4 ">G-007-VN</td>
+						<td class="column 5">
+							<form method="post" asp-page-handler="Verwijder" style="display:inline;">
+								<input type="hidden" name="id" value="test@mail.nl" />
+								<button type="submit">Verwijder</button>
+							</form>
+						</td>
+						<td class="column 6">
+							<form method="post" asp-page-handler="Betaal" style="display:inline;">
+								<input type="hidden" name="id" value="test@mail.nl" />
+								<button type="submit">Betaald</button>
+							</form>
+						</td>
 					</tr>
 					<tr class="row13">
 						<td class="column1 ">13</td>
 						<td class="column4 ">Ben@gmail.com</td>
 						<td class="column5 ">Ja</td>
 						<td class="column4 ">GG-416-2</td>
-
+						<td class="column 5">
+							<form method="post" asp-page-handler="Verwijder" style="display:inline;">
+								<input type="hidden" name="id" value="test@mail.nl" />
+								<button type="submit">Verwijder</button>
+							</form>
+						</td>
+						<td class="column 6">
+							<form method="post" asp-page-handler="Betaal" style="display:inline;">
+								<input type="hidden" name="id" value="test@mail.nl" />
+								<button type="submit">Betaald</button>
+							</form>
+						</td>
 					</tr>
 					<tr class="row15">
 						<td class="column1 ">16</td>
 						<td class="column4 ">Claar@gmail.com</td>
 						<td class="column5 ">Ja</td>
 						<td class="column4 ">R-436-PG</td>
+						<td class="column 5">
+							<form method="post" asp-page-handler="Verwijder" style="display:inline;">
+								<input type="hidden" name="id" value="test@mail.nl" />
+								<button type="submit">Verwijder</button>
+							</form>
+						</td>
+						<td class="column 6">
+							<form method="post" asp-page-handler="Betaal" style="display:inline;">
+								<input type="hidden" name="id" value="test@mail.nl" />
+								<button type="submit">Betaald</button>
+							</form>
+						</td>
 					</tr>
 					<tr class="row16">
 						<td class="column1 ">15</td>
 						<td class="column4 ">Krijn@gmail.com</td>
 						<td class="column5 ">Nee</td>
 						<td class="column4 ">9-TRG-00</td>
+						<td class="column 5">
+							<form method="post" asp-page-handler="Verwijder" style="display:inline;">
+								<input type="hidden" name="id" value="test@mail.nl" />
+								<button type="submit">Verwijder</button>
+							</form>
+						</td>
+						<td class="column 6">
+							<form method="post" asp-page-handler="Betaal" style="display:inline;">
+								<input type="hidden" name="id" value="test@mail.nl" />
+								<button type="submit">Betaald</button>
+							</form>
+						</td>
 					</tr>
 					<tr class="row17">
 						<td class="column1 ">17</td>
 						<td class="column4 ">Fred@gmail.com</td>
 						<td class="column5 ">Ja</td>
 						<td class="column4 ">GPS-53-A</td>
+						<td class="column 5">
+							<form method="post" asp-page-handler="Verwijder" style="display:inline;">
+								<input type="hidden" name="id" value="test@mail.nl" />
+								<button type="submit">Verwijder</button>
+							</form>
+						</td>
+						<td class="column 6">
+							<form method="post" asp-page-handler="Betaal" style="display:inline;">
+								<input type="hidden" name="id" value="test@mail.nl" />
+								<button type="submit">Betaald</button>
+							</form>
+						</td>
 					</tr>
 					<tr class="row18">
 						<td class="column1 ">18</td>
 						<td class="column4 ">Gerwin@gmail.com</td>
 						<td class="column5 ">Ja</td>
 						<td class="column4 ">K-614-BJ</td>
+						<td class="column 5">
+							<form method="post" asp-page-handler="Verwijder" style="display:inline;">
+								<input type="hidden" name="id" value="test@mail.nl" />
+								<button type="submit">Verwijder</button>
+							</form>
+						</td>
+						<td class="column 6">
+							<form method="post" asp-page-handler="Betaal" style="display:inline;">
+								<input type="hidden" name="id" value="test@mail.nl" />
+								<button type="submit">Betaald</button>
+							</form>
+						</td>
 					</tr>
 					<tr class="row19">
 						<td class="column1 ">19</td>
 						<td class="column4 ">Ryan@gmail.com</td>
 						<td class="column5 ">Ja</td>
 						<td class="column4 ">PS-040-V</td>
+						<td class="column 5">
+							<form method="post" asp-page-handler="Verwijder" style="display:inline;">
+								<input type="hidden" name="id" value="test@mail.nl" />
+								<button type="submit">Verwijder</button>
+							</form>
+						</td>
+						<td class="column 6">
+							<form method="post" asp-page-handler="Betaal" style="display:inline;">
+								<input type="hidden" name="id" value="test@mail.nl" />
+								<button type="submit">Betaald</button>
+							</form>
+						</td>
 					</tr>
 					<tr class="row20">
 						<td class="column1 ">20</td>
 						<td class="column4 ">Justin@gmail.com</td>
 						<td class="column5 ">Ja</td>
 						<td class="column4 ">GG-731-V</td>
+						<td class="column 5">
+							<form method="post" asp-page-handler="Verwijder" style="display:inline;">
+								<input type="hidden" name="id" value="test@mail.nl" />
+								<button type="submit">Verwijder</button>
+							</form>
+						</td>
+						<td class="column 6">
+							<form method="post" asp-page-handler="Betaal" style="display:inline;">
+								<input type="hidden" name="id" value="test@mail.nl" />
+								<button type="submit">Betaald</button>
+							</form>
+						</td>
 					</tr>
 				</tbody>
 			</table>
@@ -178,3 +406,13 @@
 
 	</div>
 </main>
+
+<form method="post" asp-page-handler="Verwijder" style="display:inline;">
+	<input type="hidden" name="id" value="test@mail.nl" />
+	<button type="submit">Verwijder</button>
+</form>
+
+<form method="post" asp-page-handler="Betaal" style="display:inline;">
+	<input type="hidden" name="id" value="test@mail.nl" />
+	<button type="submit">Betaald</button>
+</form>

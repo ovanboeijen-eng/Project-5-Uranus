@@ -349,6 +349,7 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    overflow-y: scroll;
 }
 
 .dashboardHeader {
@@ -407,7 +408,6 @@ main {
 
     .dashboard .guestOverview table {
         width: 70%;
-        overflow-y: scroll;
     }
 
         .dashboard .guestOverview table thead {
@@ -418,18 +418,30 @@ main {
         }
 
 .dashboard th, .dashboard td {
-    padding: 1rem;
+    padding: 0.5rem;
 }
 
-.dashboard th {
-    border: none;
+.dashboard td {
+    text-align: center;
+    font-family: var(--regularFont);
 }
+
 
 .dashboard tr:nth-child(even) {
     background-color: var(--cobalt);
+    color: var(--lace);
 }
 
 
+table button {
+    background-color: var(--ochre);
+    color: var(--lace);
+    font-family: var(--regularFont);
+    border: 0px;
+    border-radius: 16px;
+    padding: 0.5rem;
+    cursor: pointer;
+}
 
 .dashboard .newGuest {
     background-color: var(--midnight);
