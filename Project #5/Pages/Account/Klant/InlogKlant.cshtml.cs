@@ -43,6 +43,13 @@ namespace Login.Klant.Page
   
         
 
+        public IActionResult OnPostLogout()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToPage("/Account/Klant/InlogKlant");
+        }
+    }
+    //hallo
 
     public class LoginInput
     {
