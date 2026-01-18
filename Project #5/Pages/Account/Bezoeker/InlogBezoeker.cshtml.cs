@@ -26,32 +26,24 @@ namespace Project__5.Pages.Account.Bezoeker
     };
         public IActionResult OnPostLogin()
         {
-            if (!ModelState.IsValid)
+
+            var db = new Project__5.Pages.DataBase.DataBase();
+
+
+            bool success = db.GetHuurderByEmailAndPassword(Input.Email!, Input.Password!);
+
+            if (success)
             {
-                return Page();
-            }
-
-            Input.Email = "bezoeker@test.nl";
-            Input.Password = "Test123!";
-            if (Input.Email == "bezoeker@test.nl" && Input.Password == "Test123!")
-            {
-                HttpContext.Session.SetString("UserEmail", Input.Email);
-
-                if (SelectedCampingId == Guid.Empty)
-                {
-                    ModelState.AddModelError("", "Selecteer een camping.");
-                    return Page();
-                }
-
-                return RedirectToPage("Index");
+                HttpContext.Session.SetString("UserEmail", Input.Email!);
+                return RedirectToPage("/Index");
             }
             else
             {
                 ErrorMessage = "Ongeldige inloggegevens";
                 return Page();
             }
-        }
 
+        }
         public class Camping
         {
             public Guid Id { get; set; }
