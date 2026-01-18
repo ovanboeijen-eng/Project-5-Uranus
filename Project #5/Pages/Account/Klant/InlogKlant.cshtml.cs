@@ -14,13 +14,7 @@ namespace Login.Klant.Page
 
         public Guid SelectedCampingId { get; set; }
 
-        public List<Camping> Campings { get; set; } = new List<Camping>()
-            {
-                new Camping { Id = Guid.NewGuid(), Name = "Camping De Zon" },
-                new Camping { Id = Guid.NewGuid(), Name = "Camping Het Bos" },
-                new Camping { Id = Guid.NewGuid(), Name = "Camping Aan Zee" },
-                new Camping { Id = Guid.NewGuid(), Name = "Les 3 Sources" }
-            };
+     
         public void OnGet()
         {
         }
@@ -31,12 +25,12 @@ namespace Login.Klant.Page
             var db = new Project__5.Pages.DataBase.DataBase();
 
           
-            bool success = db.GetKlantByEmailAndPassword(Input.Email!, Input.Password!);
+            bool success = db.GetHuurderByEmailAndPassword(Input.Email!, Input.Wachtwoord!);
 
             if (success)
             {
-                HttpContext.Session.SetString("UserEmail", Input.Email!);
-                return RedirectToPage("/Index");
+                HttpContext.Session.SetString("Email", Input.Email!);
+                return RedirectToPage("/Dashboard/Dashboard");
             }
             else
             {
@@ -46,29 +40,9 @@ namespace Login.Klant.Page
 
         }
 
-        public IActionResult OnPostSelectCamping()
-        {
-            if (SelectedCampingId == Guid.Empty)
-            {
-                ModelState.AddModelError("", "Selecteer een camping.");
-                return Page();
-            }
+  
+        
 
-            return RedirectToPage("Index");
-        }
-
-        public IActionResult OnPostLogout()
-        {
-            HttpContext.Session.Clear();
-            return RedirectToPage("/Account/Klant/InlogKlant");
-        }
-    }
-    //hallo
-    public class Camping
-    {
-        public Guid Id { get; set; }
-        public required string Name { get; set; }
-    }
 
     public class LoginInput
     {
@@ -78,13 +52,9 @@ namespace Login.Klant.Page
 
         [Required(ErrorMessage = "Wachtwoord is verplicht")]
         [DataType(DataType.Password)]
-        public string? Password { get; set; }
+        public string? Wachtwoord { get; set; }
 
-        [Required(ErrorMessage = "Selecteer een camping")]
-        //public string? Camping { get; set; }
-        public Guid CampingId { get; set; }
-
-
+  
 
         public bool? RememberMe { get; set; }
     }
